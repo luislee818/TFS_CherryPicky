@@ -144,7 +144,7 @@ foreach ($change in $changes)
 			WriteSafe "OK [File-Add]"
 		}
 		elseif ($changeType.ToString().IndexOf("Edit") -ge 0) {  # Edit
-			$sandwichChangesets = GetHistoryForItemBetweenChangesets $tfs $itemServerPath $baselineChangesetId $cherryChangesetId | select ChangesetId, Committer, CheckinDate
+			$sandwichChangesets = GetHistoryForItemBetweenChangesets $tfs $itemServerPath $baselineChangesetId $cherryChangesetId | select ChangesetId, Committer, CreationDate
 
 			if (([Array] $sandwichChangesets).Length -gt 0)  # $sand* is an object of pSCustomObject
 			{
@@ -159,7 +159,7 @@ foreach ($change in $changes)
 			}
 		}
 		elseif ($changeType -eq "Delete") {  # Delete
-			$sandwichChangesets = GetHistoryForItemBetweenChangesets $tfs $itemServerPath $baselineChangesetId $cherryChangesetId | select ChangesetId, Committer, CheckinDate
+			$sandwichChangesets = GetHistoryForItemBetweenChangesets $tfs $itemServerPath $baselineChangesetId $cherryChangesetId | select ChangesetId, Committer, CreationDate
 
 			if (([Array] $sandwichChangesets).Length -gt 0)  # $sand* is an object of pSCustomObject
 			{
